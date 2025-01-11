@@ -33,4 +33,20 @@ class Predators {
             print("JSON file not found")
         }
     }
+    
+    func search(for searchTerm: String) -> [ApexPredator] {
+        if searchTerm.isEmpty {
+            return apexPredators
+        } else {
+            return apexPredators.filter { predator in
+                predator.name.localizedCaseInsensitiveContains(searchTerm)
+            }
+        }
+    }
+    
+    func sort(by alphabetical: Bool){
+        apexPredators.sort { predator1, predator2 in
+            alphabetical ? predator1.name < predator2.name : predator2.id < predator1.id
+        }
+    }
 }
