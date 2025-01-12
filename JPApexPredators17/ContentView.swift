@@ -11,10 +11,13 @@ struct ContentView: View {
     let predators = Predators()
     @State var searchText: String = ""
     @State var alphabetical = false
+    @State var currentSelection = APType.all
     
     let tapVibration = UIImpactFeedbackGenerator(style: .light)
     
     var filteredDinos: [ApexPredator] {
+        predators.filter(by: currentSelection)
+        
         predators.sort(by: alphabetical)
         
         return predators.search(for: searchText)
@@ -30,7 +33,7 @@ struct ContentView: View {
                 } label: {
                     HStack{
                         
-                        //                Dinosaur image
+//                        Dinosaur image
                         Image(predator.image)
                             .resizable()
                             .scaledToFit()
@@ -39,11 +42,11 @@ struct ContentView: View {
                         
                         VStack(alignment: .leading) {
                             
-                            //                    Name
+//                            Name
                             Text(predator.name)
                                 .fontWeight(.bold)
                             
-                            //                    Type
+//                            Type
                             Text(predator.type.rawValue.capitalized)
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
@@ -73,9 +76,20 @@ struct ContentView: View {
                                 .symbolEffect(.bounce, value: alphabetical)
                         }
                     }
-                    .foregroundColor(.secondary)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Picker("Filter", selection: $currentSelection.animation()) {
+                            ForEach(APType.allCases) { type in
+                                Label(type.rawValue.capitalized, systemImage: type.icon)
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
+                    }
                 }
             }
+            .foregroundColor(.secondary)
         }
         .preferredColorScheme(.dark)
     }
