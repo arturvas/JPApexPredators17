@@ -32,16 +32,49 @@ struct PredatorDetail: View {
                     
                 }
                 
-//                    Dino Image
-//
+                VStack(alignment: .leading) {
+//                    Dino name
+                    Text(predator.name)
+                        .font(.largeTitle)
+                
+
 //                    Current location
-//
+                    
+
 //                    Appears in
+                    Text("Appears in: ")
+                        .font(.title3)
 //
+                    ForEach(predator.movies, id: \.self) { movie in
+                        Text("•" + movie)
+                            .font(.subheadline)
+                    }
+                    
 //                    Movie moments
+                    Text("Movie Moments")
+                        .font(.title)
+                        .padding(.top, 15)
+                    
+                    ForEach(predator.movieScenes) { scene in
+                        Text(scene.movie)
+                            .font(.title2)
+                            .padding(.vertical, 1)
+                        
+                        Text(scene.sceneDescription)
+                            .padding(.bottom, 15)
+                    }
 //
 //                    Link to webpage
-                
+                    Text("Read more: ")
+                        .font(.caption)
+                    
+                    Link(predator.link, destination: URL(string: predator.link)!)
+                        .font(.caption)
+                        .foregroundStyle(.blue)
+                }
+                .padding()
+                .padding(.bottom)
+                .frame(width: geo.size.width, alignment: .leading)
             }
         }
         .ignoresSafeArea(.all)
