@@ -87,7 +87,6 @@ struct ContentView: View {
                     }
                 }
             }
-            .foregroundColor(.secondary)
         }
         .preferredColorScheme(.dark)
     }
