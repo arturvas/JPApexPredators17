@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct PredatorDetail: View {
     let predator: ApexPredator
+    
+    @State var position: MapCameraPosition
     
     var body: some View {
         GeometryReader { geo in
@@ -21,7 +24,7 @@ struct PredatorDetail: View {
                         .scaledToFit()
                         .overlay {
                             LinearGradient(stops:
-                                            [Gradient.Stop(color: .clear, location: 0.8),
+                                            [Gradient.Stop(color: .clear, location: 0.5),
                                              Gradient.Stop(color: .black, location: 1)
                                             ], startPoint: .top, endPoint: .bottom)
                         }
@@ -45,11 +48,41 @@ struct PredatorDetail: View {
                 
 
 //                    Current location
-                    
+                    NavigationLink {
+                        Image(predator.image)
+                            .resizable()
+                            .scaledToFit()
+                    } label: {
+                        Map(position: $position){
+                            Annotation(predator.name, coordinate: predator.location) {
+                                Image(systemName: "mappin.and.ellipse")
+                                    .font(.largeTitle)
+                                    .imageScale(.large)
+                                    .symbolEffect(.pulse)
+                            }
+                            .annotationTitles(.hidden)
+                        }
+                        .frame(height: 125)
+                        .overlay(alignment: .trailing) {
+                            Image(systemName: "greaterthan")
+                                .imageScale(.large)
+                                .font(.title3)
+                                .padding(.trailing, 5)
+                        }
+                        .overlay(alignment: .topLeading) {
+                            Text("Current Location")
+                                .padding([.leading, .bottom], 5)
+                                .padding(.trailing, 8)
+                                .background(.black.opacity(0.33))
+                                .clipShape(.rect(bottomTrailingRadius: 15))
+                        }
+                        .clipShape(.rect(cornerRadius: 15))
+                    }
 
 //                    Appears in
                     Text("Appears in: ")
                         .font(.title3)
+                        .padding(.top)
 //
                     ForEach(predator.movies, id: \.self) { movie in
                         Text("•" + movie)
@@ -84,10 +117,20 @@ struct PredatorDetail: View {
             }
         }
         .ignoresSafeArea(.all)
+        .toolbarBackground(.automatic)
     }
 }
 
 #Preview {
-    PredatorDetail(predator: Predators().apexPredators[11])
+    let predator = Predators().apexPredators[2]
+    
+    NavigationStack{
+        PredatorDetail(predator: predator, position: .camera(
+            MapCamera(
+                centerCoordinate: predator.location,
+                distance: 30000
+            ))
+        )
         .preferredColorScheme(.dark)
+    }
 }
