@@ -11,9 +11,17 @@ import MapKit
 struct PredatorMap: View {
 //    this is how we access the array of all the apex predators
     let predators = Predators()
+    private let initialPosition: MapCameraPosition
     
     @State var position: MapCameraPosition
     @State var satellite: Bool = false
+    
+//    custom init receive the position
+//    and also hold the initial position in
+    init(position: MapCameraPosition) {
+        self._position = State(initialValue: position)
+        self.initialPosition = position
+    }
     
     var body: some View {
         Map(position: $position) {
@@ -30,19 +38,31 @@ struct PredatorMap: View {
         }
         .mapStyle(satellite ? .imagery(elevation: .realistic) : .standard(elevation: .realistic))
         .overlay(alignment: .bottomTrailing) {
-            Button {
-                satellite.toggle()
-            } label: {
-                Image(systemName: satellite ? "globle.americas.fill" : "globe.americas")
-                    .font(.largeTitle)
-                    .imageScale(.large)
-                    .padding(3)
-                    .background(.ultraThinMaterial)
-                    .clipShape(.rect(cornerRadius: 7))
-                    .shadow(radius: 3)
-                    .padding()
+            VStack(spacing: 20){
+                Button {
+                    withAnimation {
+                        position = initialPosition
+                    }
+                    HapticManager.lightTap()
+                } label: {
+                    Image(systemName: "location.fill.viewfinder")
+                }
+                .shadow(radius: 3)
+                Button {
+                    satellite.toggle()
+                    HapticManager.lightTap()
+                } label: {
+                    Image(systemName: satellite ? "globe.americas.fill" : "globe.americas")
+                }
             }
+            .font(.largeTitle)
+            .imageScale(.large)
+            .padding(3)
+            .clipShape(.rect(cornerRadius: 7))
+            .shadow(radius: 3)
+            .padding()
         }
+        .toolbarBackground(.automatic)
     }
 }
 
