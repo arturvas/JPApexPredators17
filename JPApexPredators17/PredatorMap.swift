@@ -1,0 +1,58 @@
+//
+//  PredatorMap.swift
+//  JPApexPredators17
+//
+//  Created by Artur Vasconcelos on 18/01/25.
+//
+
+import SwiftUI
+import MapKit
+
+struct PredatorMap: View {
+//    this is how we access the array of all the apex predators
+    let predators = Predators()
+    
+    @State var position: MapCameraPosition
+    @State var satellite: Bool = false
+    
+    var body: some View {
+        Map(position: $position) {
+            ForEach(predators.apexPredators) { predator in
+                Annotation(predator.name, coordinate: predator.location) {
+                    Image(predator.image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .shadow(color: .white, radius: 3)
+                        .scaleEffect(x: -1)
+                }
+            }
+        }
+        .mapStyle(satellite ? .imagery(elevation: .realistic) : .standard(elevation: .realistic))
+        .overlay(alignment: .bottomTrailing) {
+            Button {
+                satellite.toggle()
+            } label: {
+                Image(systemName: satellite ? "globle.americas.fill" : "globe.americas")
+                    .font(.largeTitle)
+                    .imageScale(.large)
+                    .padding(3)
+                    .background(.ultraThinMaterial)
+                    .clipShape(.rect(cornerRadius: 7))
+                    .shadow(radius: 3)
+                    .padding()
+            }
+        }
+    }
+}
+
+#Preview {
+    PredatorMap(position: .camera(MapCamera(
+        centerCoordinate:
+            Predators().apexPredators[2].location,
+        distance: 1000,
+        heading: 250,
+        pitch: 80))
+    )
+    .preferredColorScheme(.dark)
+}

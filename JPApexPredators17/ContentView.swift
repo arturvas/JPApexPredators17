@@ -14,8 +14,6 @@ struct ContentView: View {
     @State var alphabetical = false
     @State var currentSelection = APType.all
     
-    let tapVibration = UIImpactFeedbackGenerator(style: .light)
-    
     var filteredDinos: [ApexPredator] {
         predators.filter(by: currentSelection)
         
@@ -73,7 +71,7 @@ struct ContentView: View {
                             withAnimation{
                                 alphabetical.toggle()
                             }
-                            tapVibration.impactOccurred()
+                            HapticManager.lightTap()
                         } label: {
                             Image(systemName: alphabetical ? "textformat" : "film")
                                 .symbolEffect(.bounce, value: alphabetical)
