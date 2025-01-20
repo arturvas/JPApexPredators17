@@ -6,14 +6,61 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5FED5DB82D3ED19200662D88 /* ApexStickers.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5FED5DB12D3ED19000662D88 /* ApexStickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5FED5DB62D3ED19200662D88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F2DA48E2D07376D00B87A6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FED5DB02D3ED19000662D88;
+			remoteInfo = ApexStickers;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5FED5DBD2D3ED19200662D88 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5FED5DB82D3ED19200662D88 /* ApexStickers.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		5F2DA4962D07376D00B87A6B /* JPApexPredators17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPApexPredators17.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FED5DB12D3ED19000662D88 /* ApexStickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ApexStickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5FED5DB92D3ED19200662D88 /* Exceptions for "ApexStickers" folder in "ApexStickers" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5FED5DB02D3ED19000662D88 /* ApexStickers */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5F2DA4982D07376D00B87A6B /* JPApexPredators17 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = JPApexPredators17;
+			sourceTree = "<group>";
+		};
+		5FED5DB22D3ED19000662D88 /* ApexStickers */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5FED5DB92D3ED19200662D88 /* Exceptions for "ApexStickers" folder in "ApexStickers" target */,
+			);
+			path = ApexStickers;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -33,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				5F2DA4982D07376D00B87A6B /* JPApexPredators17 */,
+				5FED5DB22D3ED19000662D88 /* ApexStickers */,
 				5F2DA4972D07376D00B87A6B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				5F2DA4962D07376D00B87A6B /* JPApexPredators17.app */,
+				5FED5DB12D3ED19000662D88 /* ApexStickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,10 +104,12 @@
 				5F2DA4922D07376D00B87A6B /* Sources */,
 				5F2DA4932D07376D00B87A6B /* Frameworks */,
 				5F2DA4942D07376D00B87A6B /* Resources */,
+				5FED5DBD2D3ED19200662D88 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5FED5DB72D3ED19200662D88 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5F2DA4982D07376D00B87A6B /* JPApexPredators17 */,
@@ -69,6 +120,26 @@
 			productName = JPApexPredators17;
 			productReference = 5F2DA4962D07376D00B87A6B /* JPApexPredators17.app */;
 			productType = "com.apple.product-type.application";
+		};
+		5FED5DB02D3ED19000662D88 /* ApexStickers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FED5DBA2D3ED19200662D88 /* Build configuration list for PBXNativeTarget "ApexStickers" */;
+			buildPhases = (
+				5FED5DAF2D3ED19000662D88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5FED5DB22D3ED19000662D88 /* ApexStickers */,
+			);
+			name = ApexStickers;
+			packageProductDependencies = (
+			);
+			productName = ApexStickers;
+			productReference = 5FED5DB12D3ED19000662D88 /* ApexStickers.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
 
@@ -82,6 +153,9 @@
 				TargetAttributes = {
 					5F2DA4952D07376D00B87A6B = {
 						CreatedOnToolsVersion = 16.1;
+					};
+					5FED5DB02D3ED19000662D88 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -100,12 +174,20 @@
 			projectRoot = "";
 			targets = (
 				5F2DA4952D07376D00B87A6B /* JPApexPredators17 */,
+				5FED5DB02D3ED19000662D88 /* ApexStickers */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5F2DA4942D07376D00B87A6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FED5DAF2D3ED19000662D88 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -123,6 +205,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FED5DB72D3ED19200662D88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FED5DB02D3ED19000662D88 /* ApexStickers */;
+			targetProxy = 5FED5DB62D3ED19200662D88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5F2DA4A22D07376F00B87A6B /* Debug */ = {
@@ -302,6 +392,46 @@
 			};
 			name = Release;
 		};
+		5FED5DBB2D3ED19200662D88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6768DL975H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ApexStickers/Info.plist;
+				INFOPLIST_KEY_NSStickerSharingLevel = OS;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arturvas.JPApexPredators17.ApexStickers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5FED5DBC2D3ED19200662D88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6768DL975H;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ApexStickers/Info.plist;
+				INFOPLIST_KEY_NSStickerSharingLevel = OS;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arturvas.JPApexPredators17.ApexStickers;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +449,15 @@
 			buildConfigurations = (
 				5F2DA4A52D07376F00B87A6B /* Debug */,
 				5F2DA4A62D07376F00B87A6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FED5DBA2D3ED19200662D88 /* Build configuration list for PBXNativeTarget "ApexStickers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FED5DBB2D3ED19200662D88 /* Debug */,
+				5FED5DBC2D3ED19200662D88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
