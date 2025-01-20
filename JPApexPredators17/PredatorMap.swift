@@ -16,6 +16,15 @@ struct PredatorMap: View {
     @State var position: MapCameraPosition
     @State var satellite: Bool = false
     
+    @State private var isResetButtonTriggered: Bool = false
+    @State private var isSatelliteButtonTriggered: Bool = false
+    
+    @State private var isMapMoving: Bool = false
+    
+    var shouldShowResetButton: Bool {
+        position != initialPosition
+    }
+    
 //    custom init receive the position
 //    and also hold the initial position in
     init(position: MapCameraPosition) {
@@ -39,15 +48,19 @@ struct PredatorMap: View {
         .mapStyle(satellite ? .imagery(elevation: .realistic) : .standard(elevation: .realistic))
         .overlay(alignment: .bottomTrailing) {
             VStack(spacing: 20){
-                Button {
-                    withAnimation {
-                        position = initialPosition
+                if shouldShowResetButton {
+                    Button {
+                        withAnimation {
+                            position = initialPosition
+                            isResetButtonTriggered.toggle()
+                        }
+                        HapticManager.lightTap()
+                    } label: {
+                        Image(systemName: "location.fill.viewfinder")
+                            .symbolEffect(.bounce, value: isResetButtonTriggered)
                     }
-                    HapticManager.lightTap()
-                } label: {
-                    Image(systemName: "location.fill.viewfinder")
+                    .shadow(radius: 3)
                 }
-                .shadow(radius: 3)
                 Button {
                     satellite.toggle()
                     HapticManager.lightTap()
