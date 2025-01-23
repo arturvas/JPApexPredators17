@@ -6,10 +6,10 @@ Um aplicativo iOS que exibe uma lista de predadores de topo com informações de
 
 ### Tela Principal
 <div style="display: flex; gap: 10px;">
-   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/mainscreen.png" alt="Tela Principal" width="240"/>
-   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/detail.png" alt="Detalhes do Predador" width="240"/>
-   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/location.png" alt="Localização" width="240"/>
-   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/locationZoomOut.png" alt="Globo" width="240"/>
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/mainscreenWithFilter.png" alt="Tela Principal com filtro" width=300" />
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/detail.png" alt="Detalhes do Predador" width="300"/>
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/location.png" alt="Localização" width="300"/>
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/locationZoomOut.png" alt="Globo" width="300"/>
 </div>
 
 ## Funcionalidades
@@ -24,6 +24,7 @@ Um aplicativo iOS que exibe uma lista de predadores de topo com informações de
 
 O projeto segue uma estrutura modular simples para facilitar a organização e manutenção do código:
 
+- **jpapexpredators.json**: Contem toda a informacao dos predadores. 
 - **ContentView.swift**: Ponto de entrada da interface principal.
 - **ApexPredator.swift**: Define o modelo para os predadores.
 - **Predators.swift**: Gerencia a lista e os métodos para filtrar e buscar predadores.
