@@ -2,6 +2,16 @@
 
 Um aplicativo iOS que exibe uma lista de predadores de topo com informações detalhadas e localização no mapa. O projeto foi desenvolvido usando SwiftUI e demonstra funcionalidades como filtros, pesquisa e navegação.
 
+## Capturas de Tela
+
+### Tela Principal
+<div style="display: flex; gap: 10px;">
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/mainscreen.png" alt="Tela Principal" width="240"/>
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/detail.png" alt="Detalhes do Predador" width="240"/>
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/location.png" alt="Localização" width="240"/>
+   <img src="https://github.com/arturvas/JPApexPredators17/blob/main/JPApexPredators17/Screenshots/locationZoomOut.png" alt="Globo" width="240"/>
+</div>
+
 ## Funcionalidades
 
 - **Listagem de predadores**: Exibe uma lista com imagens e informações básicas sobre os predadores.
